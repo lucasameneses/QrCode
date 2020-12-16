@@ -1,28 +1,31 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+      <v-col>
+        <v-row>
+          <vue-qrious :value="text" size="300" />
+        </v-row>
+        <v-row>
+          <v-flex xs8 sm4 md4 lg3>
+            <v-text-field
+              placeholder="Digite Aqui !!"
+              solo
+              v-model="text"
+            ></v-text-field>
+          </v-flex>
+        </v-row>
+      </v-col>
 </template>
 
+<script src="/path/to/qrious.js"></script> 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import VueQrious from "vue-qrious";
+import Qrious from "qrious";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    VueQrious,
+  },
+  data: () => ({
+    text: "",
+  }),
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
